@@ -25,7 +25,7 @@ export default function Home() {
         mb={"15px"}
       >
         <Typography variant={"h2"} fontSize={"24px"}>
-          Iotデバイスを、どのご家庭にもあるパーツを使って作る方法を教えます
+          Iotデバイスを、どのご家庭にもある材料を使って作る方法を教えます
         </Typography>
         <Box width={"80%"} height={2} my={"8px"} bgcolor="#333333" />
       </Box>
@@ -133,6 +133,7 @@ export default function Home() {
                 display={"flex"}
                 flexDirection={"column"}
                 alignItems={"center"}
+                p={"20px"}
               >
                 <Image
                   src={"/computer_man.png"}
@@ -184,14 +185,60 @@ export default function Home() {
           fontSize={"32px"}
           fontWeight={"bold"}
           sx={{
-            position: "absolute", // 絶対位置指定
-            top: 70, // 上部に配置
-            left: 30, // 必要に応じて調整可能
+            position: "absolute",
+            top: 70,
+            left: 30,
           }}
         >
           材料を用意する
         </Typography>
         <Box width={"80%"} height={6} my={"8px"} bgcolor="#333333" />
+        <Box>
+          <Typography variant="h4" fontSize={"28px"}>
+            【レシピ】
+          </Typography>
+          {/* 材料 */}
+          <Box display={"flex"} paddingInline={"20px"}>
+            <Image
+              src={"/arduino_r4_wifi.jpg"}
+              alt={"Arduino R4 WiFi"}
+              width={200}
+              height={0}
+            />
+            <Box
+              display={"flex"}
+              paddingInline={"20px"}
+              flexDirection={"column"}
+            >
+              <Typography variant="h4" fontSize={"28px"}>
+                Arduino R4 WiFi
+              </Typography>
+              <Box paddingLeft={2}>
+                <Typography variant="h4" fontSize={"20px"}>
+                  どのご家庭にもあるワンボードマイコン、ArduinoのWiFi搭載モデルです。Renesasの32ビットマイクロコントローラRA4M1をベースに設計されており、Wi-Fi®およびBluetooth®接続用のESP32-S3-MINI-1-N8が搭載されています。なお、ご家庭にESP-WROOM-32しかない場合はそちらを使用しても大丈夫です。
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+          {/* 材料 */}
+          <Box display={"flex"} paddingInline={"20px"}>
+            <Image src={"/sg90.jpg"} alt={"sg90"} width={200} height={0} />
+            <Box
+              display={"flex"}
+              paddingInline={"20px"}
+              flexDirection={"column"}
+            >
+              <Typography variant="h4" fontSize={"28px"}>
+                デジタル・マイクロサーボ SG90
+              </Typography>
+              <Box paddingLeft={2}>
+                <Typography variant="h4" fontSize={"20px"}>
+                  どのご家庭にもあるサーボモーターです。切らしてしまっている場合には他のサーボモーターを使ってもかまいません。
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </Box>
       {/* 説明 材料を組み立てる */}
       <Box paddingTop={"10px"} position="relative">
@@ -208,9 +255,9 @@ export default function Home() {
           fontSize={"32px"}
           fontWeight={"bold"}
           sx={{
-            position: "absolute", // 絶対位置指定
-            top: 70, // 上部に配置
-            left: 30, // 必要に応じて調整可能
+            position: "absolute",
+            top: 70,
+            left: 30,
           }}
         >
           材料を組み立てる
@@ -232,9 +279,9 @@ export default function Home() {
           fontSize={"32px"}
           fontWeight={"bold"}
           sx={{
-            position: "absolute", // 絶対位置指定
-            top: 70, // 上部に配置
-            left: 30, // 必要に応じて調整可能
+            position: "absolute",
+            top: 70,
+            left: 30,
           }}
         >
           コードを書く

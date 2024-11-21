@@ -11,7 +11,7 @@ import {
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Image from "next/image";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       {/* タイトル */}
@@ -597,4 +597,6 @@ export default function Home() {
       </Box>
     </>
   );
-}
+};
+
+export default Home;

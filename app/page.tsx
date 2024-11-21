@@ -16,19 +16,58 @@ const Home = () => {
       {/* タイトル */}
       <Box
         display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
         marginBlock={"25px 5px"}
+        flexDirection={"row"}
+        paddingInline={"5px"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
       >
-        <Typography
-          variant={"h1"}
-          fontSize={{ xs: 20, sm: 48 }}
-          fontWeight={"bold"}
+        <Box justifyContent={"center"} flexGrow={1} paddingLeft={{ md: 20 }}>
+          <Typography
+            variant={"h1"}
+            fontSize={{ xs: 20, sm: 48 }}
+            fontWeight={"bold"}
+            textAlign="center"
+          >
+            私文でもわかる！IoTデバイスの作り方
+          </Typography>
+
+          <Typography
+            variant={"h2"}
+            textAlign={"center"}
+            fontSize={{ xs: 18, sm: 24 }}
+            sx={{ marginTop: 2 }}
+          >
+            Iotデバイスを、どのご家庭にもある材料を使って作る方法を教えます
+          </Typography>
+        </Box>
+
+        <Box
+          justifyContent={"end"}
+          sx={{
+            "@media (max-width: 600px)": {
+              display: "none",
+            },
+          }}
         >
-          私文でもわかる！IoTデバイスの作り方
-        </Typography>
+          <Image
+            src={"/qrcode.png"}
+            alt={"https://hard-tutorial.vercel.app/"}
+            width={150}
+            height={150}
+          />
+          <Typography
+            variant={"h5"}
+            textAlign={"center"}
+            fontSize={15}
+            sx={{ inlineSize: 150 }}
+          >
+            お使いの端末でも
+            <br />
+            ご覧いただけます
+          </Typography>
+        </Box>
       </Box>
-      {/* 説明 */}
       <Box
         display={"flex"}
         flexDirection={"column"}
@@ -36,14 +75,8 @@ const Home = () => {
         alignItems={"center"}
         mb={"15px"}
       >
-        <Typography
-          variant={"h2"}
-          textAlign={"center"}
-          fontSize={{ xs: 18, sm: 24 }}
-        >
-          Iotデバイスを、どのご家庭にもある材料を使って作る方法を教えます
-        </Typography>
         <Box width={"80%"} height={2} my={"8px"} bgcolor="#333333" />
+        {/* 説明 */}
       </Box>
       {/* 順番 */}
       <Grid

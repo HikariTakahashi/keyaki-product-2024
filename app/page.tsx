@@ -1,4 +1,13 @@
-import { Box, Card, CardContent, Grid, Link, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  ButtonBase,
+  Card,
+  CardContent,
+  Grid,
+  Link,
+  Typography,
+} from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Image from "next/image";
 
@@ -12,8 +21,12 @@ export default function Home() {
         alignItems={"center"}
         marginBlock={"25px 5px"}
       >
-        <Typography variant={"h1"} fontSize={"48px"} fontWeight={"bold"}>
-          サルでもわかるIoTデバイスの作り方
+        <Typography
+          variant={"h1"}
+          fontSize={{ xs: 20, sm: 48 }}
+          fontWeight={"bold"}
+        >
+          私文でもわかる！IoTデバイスの作り方
         </Typography>
       </Box>
       {/* 説明 */}
@@ -24,7 +37,11 @@ export default function Home() {
         alignItems={"center"}
         mb={"15px"}
       >
-        <Typography variant={"h2"} fontSize={"24px"}>
+        <Typography
+          variant={"h2"}
+          textAlign={"center"}
+          fontSize={{ xs: 18, sm: 24 }}
+        >
           Iotデバイスを、どのご家庭にもある材料を使って作る方法を教えます
         </Typography>
         <Box width={"80%"} height={2} my={"8px"} bgcolor="#333333" />
@@ -34,10 +51,10 @@ export default function Home() {
         container
         display={"flex"}
         justifyContent={"center"}
-        paddingBottom={"120px"}
+        paddingBottom={{ xs: 10, md: 30 }}
         bgcolor={"#D9E5FF"}
       >
-        <Grid item xs={12} paddingBottom={"20px"}>
+        <Grid item xs={12} paddingBottom={{ md: "20px" }}>
           <Box
             display={"flex"}
             justifyContent={"center"}
@@ -63,18 +80,38 @@ export default function Home() {
         </Grid>
         <Grid
           item
-          xs={4}
+          xs={12}
+          md={4}
           display={"flex"}
-          justifyContent={"center"}
+          justifyContent={"space-evenly"}
           alignItems={"center"}
-          p={"20px"}
+          paddingTop={"10px"}
         >
-          <Card sx={{ width: "275px" }}>
-            <CardContent>
-              <Box
-                display={"flex"}
-                flexDirection={"column"}
-                alignItems={"center"}
+          <ButtonBase
+            href="#step1"
+            sx={{
+              width: "275px",
+              height: "250px",
+              textAlign: "inherit",
+              borderRadius: "8px",
+              overflow: "hidden",
+              transition: "transform 0.3s, box-shadow 0.3s",
+              boxShadow: 3,
+              "&:hover": {
+                transform: "scale(1.05)",
+                boxShadow: 6,
+              },
+            }}
+          >
+            <Card sx={{ width: "100%", height: "100%" }}>
+              <CardContent
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
               >
                 <Image
                   src={"/microcomputer.png"}
@@ -82,71 +119,125 @@ export default function Home() {
                   width={180}
                   height={200}
                 />
-                <Typography variant="h4" fontSize={"18px"} fontWeight={"bold"}>
+                <Typography
+                  variant="h4"
+                  fontSize={"18px"}
+                  fontWeight={"bold"}
+                  mt={2}
+                >
                   材料を用意する
                 </Typography>
-              </Box>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </ButtonBase>
           <ArrowForwardIosIcon style={{ paddingInline: 2, fontSize: 40 }} />
         </Grid>
         <Grid
           item
-          xs={4}
+          xs={12}
+          md={4}
           display={"flex"}
-          justifyContent={"center"}
+          justifyContent={"space-evenly"}
           alignItems={"center"}
-          p={"20px"}
+          paddingTop={"10px"}
         >
-          <Card sx={{ width: "275px" }}>
-            <CardContent>
-              <Box
-                display={"flex"}
-                flexDirection={"column"}
-                alignItems={"center"}
+          <ButtonBase
+            href="#step1"
+            sx={{
+              width: "275px",
+              height: "250px",
+              textAlign: "inherit",
+              borderRadius: "8px",
+              overflow: "hidden",
+              transition: "transform 0.3s, box-shadow 0.3s",
+              boxShadow: 3,
+              "&:hover": {
+                transform: "scale(1.05)",
+                boxShadow: 6,
+              },
+            }}
+          >
+            <Card sx={{ width: "100%", height: "100%" }}>
+              <CardContent
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
               >
                 <Image
                   src={"/kumitate.png"}
-                  alt={"組み立てる人のイラスト"}
-                  width={200}
+                  alt={"材料を組み立てる人のイラスト"}
+                  width={180}
                   height={200}
                 />
-                <Typography variant="h4" fontSize={"18px"} fontWeight={"bold"}>
-                  組み立てる
+                <Typography
+                  variant="h4"
+                  fontSize={"18px"}
+                  fontWeight={"bold"}
+                  mt={2}
+                >
+                  材料を組み立てる
                 </Typography>
-              </Box>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </ButtonBase>
           <ArrowForwardIosIcon style={{ paddingInline: 2, fontSize: 40 }} />
         </Grid>
         <Grid
           item
-          xs={4}
+          xs={12}
+          md={4}
           display={"flex"}
-          justifyContent={"center"}
+          justifyContent={"space-evenly"}
           alignItems={"center"}
-          p={"20px"}
+          paddingTop={"10px"}
         >
-          <Card sx={{ width: "275px" }}>
-            <CardContent>
-              <Box
-                display={"flex"}
-                flexDirection={"column"}
-                alignItems={"center"}
-                p={"20px"}
+          <ButtonBase
+            href="#step1"
+            sx={{
+              width: "275px",
+              height: "250px",
+              textAlign: "inherit",
+              borderRadius: "8px",
+              overflow: "hidden",
+              transition: "transform 0.3s, box-shadow 0.3s",
+              boxShadow: 3,
+              "&:hover": {
+                transform: "scale(1.05)",
+                boxShadow: 6,
+              },
+            }}
+          >
+            <Card sx={{ width: "100%", height: "100%" }}>
+              <CardContent
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
               >
                 <Image
                   src={"/computer_man.png"}
-                  alt={"コーディングする人のイラスト"}
+                  alt={"コードを書く人のイラスト"}
                   width={120}
-                  height={10}
+                  height={100}
                 />
-                <Typography variant="h4" fontSize={"18px"} fontWeight={"bold"}>
+                <Typography
+                  variant="h4"
+                  fontSize={"18px"}
+                  fontWeight={"bold"}
+                  mt={2}
+                >
                   コードを書く
                 </Typography>
-              </Box>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </ButtonBase>
           <ArrowForwardIosIcon style={{ paddingInline: 2, fontSize: 40 }} />
         </Grid>
         <Grid
@@ -155,9 +246,9 @@ export default function Home() {
           display={"flex"}
           justifyContent={"center"}
           alignItems={"center"}
-          p={"20px"}
+          paddingTop={{ xs: "10px", md: "100px" }}
+          paddingInline={"20px"}
         >
-          <ArrowForwardIosIcon style={{ paddingInline: 2, fontSize: 40 }} />
           <Card sx={{ width: "400px" }}>
             <CardContent>
               <Image
@@ -171,10 +262,11 @@ export default function Home() {
         </Grid>
       </Grid>
       {/* 説明 材料を用意する */}
+      <div id="step1" />
       <Box paddingTop={"10px"} position="relative">
         <Typography
           variant="h3"
-          fontSize={"82px"}
+          fontSize={{ xs: 48, sm: 82 }}
           fontWeight={"bold"}
           sx={{ opacity: 0.1 }}
         >
@@ -182,111 +274,218 @@ export default function Home() {
         </Typography>
         <Typography
           variant="h3"
-          fontSize={"32px"}
-          fontWeight={"bold"}
+          fontSize={{ xs: 24, sm: 48 }}
+          fontWeight="bold"
           sx={{
             position: "absolute",
-            top: 70,
-            left: 30,
+            top: { xs: 40, sm: 60 },
+            left: { xs: 10, sm: 30 },
           }}
         >
           材料を用意する
         </Typography>
+
         <Box width={"80%"} height={6} my={"8px"} bgcolor="#333333" />
         <Box mb={5}>
-          <Typography variant="h4" fontSize={"28px"}>
+          <Typography variant="h4" fontSize={{ xs: 20, md: 28 }}>
             【レシピ】
           </Typography>
           {/* 材料 */}
-          <Box display={"flex"} paddingInline={"20px"}>
-            <Image
-              src={"/arduino_r4_wifi.jpg"}
-              alt={"Arduino R4 WiFi"}
-              width={200}
-              height={0}
-            />
+          <Box display={"flex"} flexDirection={{ xs: "column", md: "row" }}>
+            <Box sx={{ width: { xs: 300, sm: 475 }, height: "auto" }}>
+              <Image
+                src={"/arduino_r4_wifi.jpg"}
+                alt={"Arduino R4 WiFi"}
+                height={1000}
+                width={1000}
+                style={{ width: "100%", height: "auto" }}
+              />
+            </Box>
             <Box
               display={"flex"}
-              paddingInline={"20px"}
+              paddingInline={{ xs: 2, md: 5 }}
               flexDirection={"column"}
             >
-              <Typography variant="h5" fontSize={"28px"}>
+              <Typography variant="h5" fontSize={{ xs: 20, md: 28 }}>
                 Arduino R4 WiFi
               </Typography>
-              <Box paddingLeft={2}>
-                <Typography variant="h5" fontSize={"20px"}>
+              <Box paddingLeft={{ md: 2 }}>
+                <Typography variant="h5" fontSize={{ xs: 15, md: 20 }}>
                   どのご家庭にもあるワンボードマイコン、ArduinoのWiFi搭載モデルです。Renesasの32ビットマイクロコントローラRA4M1をベースに設計されており、Wi-Fi®およびBluetooth®接続用のESP32-S3-MINI-1-N8が搭載されています。なお、ご家庭にESP-WROOM-32しかない場合はそちらを使用しても大丈夫です。
                 </Typography>
               </Box>
             </Box>
           </Box>
           {/* 材料 */}
-          <Box display={"flex"} paddingInline={"20px"}>
-            <Image src={"/sg90.jpg"} alt={"sg90"} width={200} height={0} />
+          <Box
+            display={"flex"}
+            paddingInline={"20px"}
+            flexDirection={{ xs: "column", md: "row" }}
+          >
+            <Box sx={{ width: { xs: 300, sm: 200 }, height: "auto" }}>
+              <Image
+                src={"/sg90.jpg"}
+                alt={"サーボモータ"}
+                height={1000}
+                width={1000}
+                style={{ width: "100%", height: "auto" }}
+              />
+            </Box>
             <Box
               display={"flex"}
-              paddingInline={"20px"}
+              paddingInline={{ md: 5 }}
               flexDirection={"column"}
             >
-              <Typography variant="h5" fontSize={"28px"}>
+              <Typography variant="h5" fontSize={{ xs: 20, md: 28 }}>
                 デジタル・マイクロサーボ SG90
               </Typography>
-              <Box paddingLeft={2}>
-                <Typography variant="h5" fontSize={"20px"}>
+              <Box paddingLeft={{ md: 2 }}>
+                <Typography variant="h5" fontSize={{ xs: 15, md: 20 }}>
                   どのご家庭にもあるサーボモーターです。切らしてしまっている場合には他のサーボモーターを使ってもかまいません。
                 </Typography>
               </Box>
             </Box>
           </Box>
+          {/* 材料 */}
+          <Box
+            display={"flex"}
+            paddingInline={"20px"}
+            flexDirection={{ xs: "column", md: "row" }}
+          >
+            <Box sx={{ width: { xs: 300, sm: 200 }, height: "auto" }}>
+              <Image
+                src={"/wire.jpg"}
+                alt={"ジャンパワイヤ"}
+                height={1000}
+                width={1000}
+                style={{ width: "100%", height: "auto" }}
+              />
+            </Box>
+            <Box
+              display={"flex"}
+              paddingInline={{ md: 5 }}
+              flexDirection={"column"}
+            >
+              <Typography variant="h5" fontSize={{ xs: 20, md: 28 }}>
+                ジャンパワイヤ
+              </Typography>
+              <Box paddingLeft={2}>
+                <Typography variant="h5" fontSize={"30px"} fontWeight={"bold"}>
+                  道端に落ちてます
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
         </Box>
-        <Typography variant="h4" fontSize={"28px"}>
-          ー材料を切らしてしまった場合ー
-        </Typography>
-        <Box display={"flex"} paddingInline={"20px"} paddingBottom={"10px"}>
-          <Image
-            src={"/akihabara.jpg"}
-            alt={"秋葉原駅"}
-            width={500}
-            height={0}
-          />
+        <Box
+          display={"flex"}
+          justifyContent={{ xs: "center", md: "flex-start" }}
+        >
+          <Typography variant="h4" fontSize={{ xs: 20, md: 28 }}>
+            ー材料を切らしてしまった場合ー
+          </Typography>
+        </Box>
+        <Box
+          display={"flex"}
+          alignItems={{ xs: "center" }}
+          flexDirection={{ xs: "column", md: "row" }}
+          paddingInline={"20px"}
+          paddingBottom={"10px"}
+        >
+          <Box
+            display={"flex"}
+            justifyContent={{ xs: "center" }}
+            sx={{ width: { xs: 300, sm: 500 }, height: "auto" }}
+          >
+            <Image
+              src={"/akihabara.jpg"}
+              alt={"秋葉原"}
+              height={1000}
+              width={1000}
+              style={{ width: "100%", height: "auto" }}
+            />
+          </Box>
           <Box
             display={"flex"}
             paddingInline={"20px"}
             flexDirection={"column"}
             justifyContent={"center"}
           >
-            <Typography variant="h5" fontSize={"32px"} fontWeight={"bold"}>
+            <Typography
+              variant="h5"
+              fontSize={{ xs: 20, md: 32 }}
+              fontWeight={"bold"}
+            >
               ①秋葉原に行きます
             </Typography>
           </Box>
         </Box>
-        <Box display={"flex"} paddingInline={"20px"} paddingBottom={"10px"}>
-          <Image src={"/map.png"} alt={"マップ"} width={500} height={0} />
+        <Box
+          display={"flex"}
+          alignItems={{ xs: "center" }}
+          flexDirection={{ xs: "column", md: "row" }}
+          paddingInline={"20px"}
+          paddingBottom={"10px"}
+        >
+          <Box
+            display={"flex"}
+            justifyContent={{ xs: "center" }}
+            sx={{ width: { xs: 300, sm: 500 }, height: "auto" }}
+          >
+            <Image
+              src={"/map.png"}
+              alt={"マップ"}
+              height={1000}
+              width={1000}
+              style={{ width: "100%", height: "auto" }}
+            />
+          </Box>
           <Box
             display={"flex"}
             paddingInline={"20px"}
             flexDirection={"column"}
             justifyContent={"center"}
           >
-            <Typography variant="h5" fontSize={"32px"} fontWeight={"bold"}>
+            <Typography
+              variant="h5"
+              fontSize={{ xs: 20, md: 32 }}
+              fontWeight={"bold"}
+            >
               ②なんかいい感じに曲がります
             </Typography>
           </Box>
         </Box>
-        <Box display={"flex"} paddingInline={"20px"} paddingBottom={"10px"}>
-          <Image
-            src={"/akiduki.png"}
-            alt={"秋月電子電商"}
-            width={500}
-            height={0}
-          />
+        <Box
+          display={"flex"}
+          alignItems={{ xs: "center" }}
+          flexDirection={{ xs: "column", md: "row" }}
+          paddingInline={"20px"}
+          paddingBottom={"10px"}
+        >
+          <Box
+            display={"flex"}
+            justifyContent={{ xs: "center" }}
+            sx={{ width: { xs: 300, sm: 500 }, height: "auto" }}
+          >
+            <Image
+              src={"/akiduki.png"}
+              alt={"秋月電子電商"}
+              height={1000}
+              width={1000}
+              style={{ width: "100%", height: "auto" }}
+            />
+          </Box>
           <Box
             display={"flex"}
             paddingInline={"20px"}
             flexDirection={"column"}
             justifyContent={"center"}
           >
-            <Typography variant="h5" fontSize={"32px"} fontWeight={"bold"}>
+            <Typography
+              variant="h5"
+              fontSize={{ xs: 20, md: 32 }}
+              fontWeight={"bold"}
+            >
               ③ここで買ってください
             </Typography>
             <Box display={"flex"} flexDirection={"row"}>
@@ -301,10 +500,11 @@ export default function Home() {
         </Box>
       </Box>
       {/* 説明 材料を組み立てる */}
+      <div id="step2" />
       <Box paddingTop={"10px"} position="relative">
         <Typography
           variant="h3"
-          fontSize={"82px"}
+          fontSize={{ xs: 48, sm: 82 }}
           fontWeight={"bold"}
           sx={{ opacity: 0.1 }}
         >
@@ -312,17 +512,64 @@ export default function Home() {
         </Typography>
         <Typography
           variant="h3"
-          fontSize={"32px"}
-          fontWeight={"bold"}
+          fontSize={{ xs: 24, sm: 48 }}
+          fontWeight="bold"
           sx={{
             position: "absolute",
-            top: 70,
-            left: 30,
+            top: { xs: 40, sm: 60 },
+            left: { xs: 10, sm: 30 },
           }}
         >
           材料を組み立てる
         </Typography>
         <Box width={"80%"} height={6} my={"8px"} bgcolor="#333333" />
+        <Box
+          display={"flex"}
+          paddingInline={"20px"}
+          flexDirection={{ xs: "column", md: "row" }}
+        >
+          <Box
+            display={"flex"}
+            justifyContent={{ xs: "center" }}
+            border={"1px solid"}
+            sx={{ width: { xs: 300, sm: 800 }, height: "auto" }}
+          >
+            <Image
+              src={"/wiring.png"}
+              alt={"配線図"}
+              height={1000}
+              width={1000}
+              style={{ width: "100%", height: "auto" }}
+            />
+          </Box>
+          <Box
+            display={"flex"}
+            flexDirection={"column"}
+            paddingLeft={{ xs: "0px", md: "20px" }}
+            maxWidth={{ xs: "75%" }}
+          >
+            <Typography variant="h4" fontSize={{ xs: 24, md: 28 }}>
+              配線図
+            </Typography>
+            <Typography variant="h5" fontSize={{ xs: 15, md: 20 }}>
+              左図のように接続してください。
+            </Typography>
+            <Box border={"1px solid"} padding={"10px"} marginTop={"10px"}>
+              <Typography variant="h5" fontSize={{ xs: 15, md: 18 }}>
+                ArduinoUno → サーボモーター
+              </Typography>
+              <Typography variant="h5" fontSize={{ xs: 15, md: 18 }}>
+                5v → Vcc(赤い線)
+              </Typography>
+              <Typography variant="h5" fontSize={{ xs: 15, md: 18 }}>
+                GND → GND(黒い線)
+              </Typography>
+              <Typography variant="h5" fontSize={{ xs: 15, md: 18 }}>
+                8 → PWM(オレンジの線)
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
       </Box>
       {/* 説明 コードを書く */}
       <Box paddingTop={"10px"} position="relative">

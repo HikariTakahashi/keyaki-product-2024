@@ -183,6 +183,7 @@ const Home = () => {
         justifyContent={"center"}
         paddingBottom={{ xs: 10, md: 30 }}
         bgcolor={"#D9E5FF"}
+        paddingInline={{ md: 30 }}
       >
         <Grid item xs={12} paddingBottom={{ md: "20px" }}>
           <Box

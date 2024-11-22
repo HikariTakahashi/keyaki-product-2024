@@ -3,12 +3,110 @@ import {
   ButtonBase,
   Card,
   CardContent,
+  Container,
   Grid,
   Link,
   Typography,
 } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Image from "next/image";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { darcula } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+const arduinoCode = `
+#include <WiFi.h>
+#include <WiFiServer.h>
+#include <Servo.h> // サーボモーターを制御するライブラリ
+
+// WiFi接続情報
+char ssid[] = "1319-Network";         // WiFiネットワークのSSID
+char pass[] = "ymks1319";     // WiFiネットワークのパスワード
+
+WiFiServer server(80);            // ポート80でWebサーバーを起動
+
+Servo myservo;                    // サーボモーターのインスタンス
+int servoPin = 9;                 // サーボモーターの接続ピン
+int servoPosition = 0;            // サーボモーターの現在位置（0度から180度）
+
+void setup() {
+  // シリアルモニタの設定
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // シリアル接続を待つ
+  }
+
+  // サーボモーターを初期化
+  myservo.attach(servoPin);
+  myservo.write(servoPosition); // 初期位置は0度
+
+  // WiFiに接続
+  WiFi.begin(ssid, pass);
+  Serial.println("Connecting to WiFi...");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print(".");
+  }
+  Serial.println("Connected to WiFi");
+
+  // Webサーバー開始
+  server.begin();
+  Serial.print("Server started at IP: ");
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+  WiFiClient client = server.available();  // クライアント接続の待機
+
+  if (client) {
+    String request = "";  // クライアントからのリクエスト
+    while (client.connected()) {
+      if (client.available()) {
+        char c = client.read();
+        request += c;
+
+        // リクエストの終わりを探す
+        if (c == '\\n' && request.endsWith("\\r\\n")) {
+          // Webページを返す
+          String html = "<!DOCTYPE HTML><html>";
+          html += "<head><style>body { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }</style></head>";
+          html += "<body>";
+
+          if (request.indexOf("/click") != -1) {
+            // 一枚目のボタンがクリックされた場合
+            if (servoPosition == 0) {
+              myservo.write(180);  // サーボモーターを180度に回転
+              servoPosition = 180; // サーボの位置を更新
+            }
+            html += "<img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdJH5wsMafP8lzMCvcjcD60tHKGG-bBEVhBsv4G-e0SkQDeHLGptz1w0hXVE0sn3d_DyqUw9F6BC8vSL-o0hU38V5kG1LDop44e31aVk1IStqT7SdGtTp9htxawSDXLtBs2dHFbYlsbH4d/s800/button_onoff2.png' alt='Second Image' style='cursor:pointer;' onclick=\\"location.href='/back';\\" />";
+          } else if (request.indexOf("/back") != -1) {
+            // 二枚目のボタンがクリックされた場合、モーターを元の位置に戻す
+            myservo.write(0);    // サーボモーターを0度に戻す
+            servoPosition = 0;   // サーボの位置を更新
+            html += "<img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1EAZ-GpGW8ZDn_TGcou7tE1aDpC83NtDSf4N6X7M_iE8atQFUP9vwsh8gB5qL079hgio2xDenZNlLvI_RFwQRXpBdrCbb1I6xrNZxtbygaQnJe5nP-oVJ6qdfmqGuQLzmSYY7gYH-T9yn/s800/button_onoff1.png' alt='First Image' style='cursor:pointer;' onclick=\\"location.href='/click';\\" />";
+          } else {
+            // 最初のページ
+            html += "<img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1EAZ-GpGW8ZDn_TGcou7tE1aDpC83NtDSf4N6X7M_iE8atQFUP9vwsh8gB5qL079hgio2xDenZNlLvI_RFwQRXpBdrCbb1I6xrNZxtbygaQnJe5nP-oVJ6qdfmqGuQLzmSYY7gYH-T9yn/s800/button_onoff1.png' alt='First Image' style='cursor:pointer;' onclick=\\"location.href='/click';\\" />";
+          }
+
+          html += "</body></html>";
+
+          // レスポンスを返す
+          client.println("HTTP/1.1 200 OK");
+          client.println("Content-Type: text/html");
+          client.println("Connection: close");
+          client.println();
+          client.print(html);
+          break;
+        }
+      }
+    }
+
+    // クライアント接続を閉じる
+    client.stop();
+    Serial.println("Client disconnected");
+  }
+}
+`;
 
 const Home = () => {
   return (
@@ -626,6 +724,18 @@ const Home = () => {
           コードを書く
         </Typography>
         <Box width={"80%"} height={6} my={"8px"} bgcolor="#333333" />
+      </Box>
+      <Box
+        display={"flex"}
+        justifyContent={"start"}
+        alignItems={"center"}
+        width="100%"
+      >
+        <Container style={{ margin: 0, padding: 0 }}>
+          <SyntaxHighlighter language="cpp" style={darcula}>
+            {arduinoCode}
+          </SyntaxHighlighter>
+        </Container>
       </Box>
     </>
   );

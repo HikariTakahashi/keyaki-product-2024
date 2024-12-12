@@ -19,8 +19,8 @@ const arduinoCode = `
 #include <Servo.h> // サーボモーターを制御するライブラリ
 
 // WiFi接続情報
-char ssid[] = "1319-Network";         // WiFiネットワークのSSID
-char pass[] = "ymks1319";     // WiFiネットワークのパスワード
+char ssid[] = "YOUR_WiFi_SSID";         // WiFiネットワークのSSID
+char pass[] = "YOUR_WiFi_PASSWORD";     // WiFiネットワークのパスワード
 
 WiFiServer server(80);            // ポート80でWebサーバーを起動
 
